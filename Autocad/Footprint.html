@@ -13,38 +13,63 @@ Copyright (c) 2021 Your Company
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../css/customStyles.css" rel="stylesheet">
     <title>Footprint Command</title>
   </head>
-  <body>
-    <!--Do not edit above this line-->
-    <div class="container">
-      <div class="row">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-          <li class="breadcrumb-item"><a href="index.html">AutoCAD Plugin</a></li>
-          <li class="breadcrumb-item active">Footprint</li>
-        </ol>
-      </div>
-      <div class="row">
-        <div class="col-3">
-          <nav id="navbar-container" class="navbar navbar-dark bg-dark flex-column align-items-stretch p-3">
-            <p class="navbar-brand">Page Contents</p>
-            <nav class="nav nav-pills flex-column">
-              <a href="#ShortDescription" class="nav-link">Short Description</a>
-            </nav>
-          </nav>
-        </div>
-        <div class="col-9">
-          <div data-bs-spy="scroll" data-bs-target="#navbar-container" data-bs-offset="0" tabindex="0">
-            <div id="ShortDescription">
-              <h4>Short Description</h4>
+  <body style="position:relative" data-bs-spy="scroll" data-bs-target="#ScrollNavbar" data-offset="1">
+    <div class="container-fluid">
+       <div class="row">
+          <div class="collapse d-sm-block col-2">
+             <nav id="ScrollNavbar" class="navbar navbar-light">
+               <ul class="nav nav-pills flex-column" style="position:fixed; top:20px">
+                <h5 class="navbar-brand">Navigation</h5>
+                   <a class="nav-link" href="#overview">Overview</a>
+                   <a class="nav-link" href="#description">Description</a>
+               </ul>
+             </nav>
+          </div>
+          <div class="col-12 col-sm-9">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="index.html">AutoCAD Civil 3D Plugin</a></li>
+              <li class="breadcrumb-item active">Footprint</li>
+            </ol>
+            <div class="py-4 mb-2 bg-secondary text-white rounded text text-center">
+              <h2>Footprint</h4>
+              <span class="badge bg-primary">Introduced 0.2.0</span> <span class="badge bg-success">AutoCAD Civil 3D 2019+</span> <span class="badge bg-danger">Update in 0.4.0</span>
+            </div>
+            <div id="overview" class="pb-3">
+              <h2>Overview</h2>
+              <ul>
+                <li>Use the <span class="code">footprint</span> command to quickly draft perimeters of features such as houses.</li>
+                <li>Select a start point &rArr; select an angle &rArr; Enter a distance (repeating) &rArr; Exit command</li>
+                <li>Distance entry methods:</li>
+                <ul>
+                  <li><span class="code">5.00</span> - Create a line 5.00 feet in length 90° clockwise from current angle.</li>
+                  <li><span class="code">-5.00</span> - Create a line 5.00 feet in length 90° counter-clockwise from current angle.</li>
+                  <li><span class="code">5.00@45</span> - Create a line 5.00 feet in length 45° clockwise from current angle.</li>
+                </ul>
+                <li>Once the command is exited, a closure report will be generated and outputted in the command area.</li>
+              </ul>
+            </div>
+            <div id="description" class="pb-5 mb-5">
+              <h2>Description</h2>
+              <p>The <span class="code">footprint</span> command allows the drafter to select a starting point in a drawing, establish a starting bearing, and quickly input distance at default 90° angles (or at an angle you specify). Positive distance will move clockwise while negative distances will move counter-clockwise. When you are completed with your footprint, you can press <span class="code">enter</span> or <span class="code">escape</span> to complete the command, and a closure report will be outputted to the command area. The closure report will state the overall misclosure, the North-South component, and the East-West component. <span class="badge bg-danger">0.4.0</span> Also included in the closure report is the area of the footprint in square feet and acres.</p>
+              <p>The command does assume the elevation of your starting position. If you have <span class="code">OSNAPZ</span> set to 0 and selected a point with an elevation (i.e.100.00'), all the lines created in the command will be created at elevation 100.00'. This is to ensure that the lines can be joined into a 2D polyline if needed afterwards.</p>
             </div>
           </div>
-        </div>
-      </div>
+       </div>
     </div>
+    
+    <footer class="footer mt-auto py-3 bg-light border-top border-dark">
+      <div class="container my-0 py-0 text-center">
+          <p id="copyright" class="text-center text-muted mb-0 pb-0">&copy; {year} - Central Florida Design Group</p>
+          <a href="https://github.com/CentralFloridaDesignGroup/CFDG-Documentation"class="text-muted">Github Source</a>
+      </div>
+    </footer>
     <!--Do not edit below this line-->
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/everypage.js"></script>
   </body>
 </html>

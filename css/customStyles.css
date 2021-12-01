@@ -1,0 +1,11 @@
+.code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    text-transform: uppercase;
+    background-color: var(--bs-color-light);
+    color: var(--bs-color-dark);
+}
+
+li .code {
+    font-size: 16px;
+}
